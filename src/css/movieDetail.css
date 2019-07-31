@@ -1,0 +1,33 @@
+.movie-detail-outer-div {
+	background: black;
+	height:600px;
+}
+
+.movie-detail-inner-div {
+	/*padding: 50px;*/
+	display: flex;
+	height:500px;
+	margin: 0 auto;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	width: 1000px;
+}
+
+.movie-title {
+	color: white;
+	width:100%;
+	font-size: 53px;
+	font-weight: 700;
+}
+
+.movie-data {
+	height: 50vh;
+	margin: 70px;
+	display: flex;
+	flex-direction: column;
+}
+.movie-overview {
+
+	margin-top: 10px;
+	color: white;
+}
