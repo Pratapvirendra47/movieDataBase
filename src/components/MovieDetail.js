@@ -142,12 +142,12 @@ class MovieDetail extends React.Component {
 										})
 									}}
 								>
-									Click for Reviews  
+								 	Reviews  
 								</div>
 								{
-									this.state.showReview ?  
+									this.state.movieReviews ?  
 										this.state.movieReviews.map((data, index) => {
-											if (index < 6) {
+											if (index < 4) {
 												return (
 													<div
 														style={{
