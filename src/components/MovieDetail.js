@@ -3,8 +3,6 @@
 	further enhancement can be made to add extra details of the movie
 */
 
-
-
 import React from 'react';
 
 import { 
@@ -92,6 +90,34 @@ class MovieDetail extends React.Component {
 							</div>
 						</div>
 					</div>
+					<div
+						style={{
+							width: "1000px",
+							margin: "0 auto",
+							marginBottom: "10px",
+							fontSize: "20px",
+							fontWeight: "bold",
+						}}
+					>
+						 Posters
+					</div>	
+					{
+						this.state.movieImages.posters  ? 
+							this.state.movieImages.posters.map((data, index) => {
+								if (index < 10) {
+									return (
+										<span>
+											<Poster data = {data} />
+										</span>
+										)
+								} else {
+									return;
+								}
+							}) : 
+						null
+					}
+
+
 					{/* Movie Reviews*/}
 
 					{
@@ -242,38 +268,6 @@ class MovieDetail extends React.Component {
 
 							</div>
 						: null
-					}
-					<div
-						style={{
-							width: "1000px",
-							margin: "0 auto",
-							marginBottom: "10px",
-							fontSize: "20px",
-							fontWeight: "bold",
-							cursor: "pointer"
-						}}
-						onClick = {()=> {
-							this.setState({
-								showPosters: !this.state.showPosters
-							})
-						}}
-					>
-						Click for Posters
-					</div>
-					{
-						this.state.movieImages.posters && this.state.showPosters ? 
-							this.state.movieImages.posters.map((data, index) => {
-								if (index < 10) {
-									return (
-										<span>
-											<Poster data = {data} />
-										</span>
-										)
-								} else {
-									return;
-								}
-							}) : 
-						null
 					}
 					<div
 						style={{
