@@ -17,6 +17,7 @@ import {
 
 import CastDetails from './CastAndCrew.js';
 import Header from './Header';
+import Poster from './Poster'
 import '../css/movieDetail.css';
 
 class MovieDetail extends React.Component {
@@ -27,7 +28,10 @@ class MovieDetail extends React.Component {
 			movieInDetails: {},
 			castAndCrew: [],
 			showReview: false,
-			showCastAndCrew: false
+			showCastAndCrew: false,
+			showPosters: false,
+			backdrops: false,
+			movieImages: {}
 		}
 		this.fetchMovieInDetails = this.fetchMovieInDetails.bind(this);
 	}
@@ -51,7 +55,6 @@ class MovieDetail extends React.Component {
 						})
 					}, movieId)
 				}, movieId)
-				console.log(castDetails);
 			}, movieId)
 		}, movieId);
 	}
@@ -113,7 +116,7 @@ class MovieDetail extends React.Component {
 										})
 									}}
 								>
-									Reviews  
+									Click for Reviews  
 								</div>
 								{
 									this.state.showReview ?  
@@ -163,7 +166,7 @@ class MovieDetail extends React.Component {
 										})
 									}}
 								>
-									Cast and Crew
+									Click for Cast and Crew
 								</div>
 								{
 									this.state.showCastAndCrew ? 
@@ -239,6 +242,74 @@ class MovieDetail extends React.Component {
 
 							</div>
 						: null
+					}
+					<div
+						style={{
+							width: "1000px",
+							margin: "0 auto",
+							marginBottom: "10px",
+							fontSize: "20px",
+							fontWeight: "bold",
+							cursor: "pointer"
+						}}
+						onClick = {()=> {
+							this.setState({
+								showPosters: !this.state.showPosters
+							})
+						}}
+					>
+						Click for Posters
+					</div>
+					{
+						this.state.movieImages.posters && this.state.showPosters ? 
+							this.state.movieImages.posters.map((data, index) => {
+								if (index < 10) {
+									return (
+										<span>
+											<Poster data = {data} />
+										</span>
+										)
+								} else {
+									return;
+								}
+							}) : 
+						null
+					}
+					<div
+						style={{
+							width: "1000px",
+							margin: "0 auto",
+							marginBottom: "10px",
+							fontSize: "20px",
+							fontWeight: "bold",
+							cursor: "pointer"
+						}}
+						onClick = {()=> {
+							this.setState({
+								backdrops: !this.state.backdrops
+							})
+						}}
+					>
+						Click for Backdrops
+					</div>
+					{
+						this.state.movieImages.backdrops && this.state.backdrops ? 
+							this.state.movieImages.backdrops.map((data, index) => {
+								if (index < 10) {
+									return (
+										<span
+											style={{
+												margin: "10px"
+											}}
+										>
+											<Poster data = {data} />
+										</span>
+										)
+								} else {
+									return;
+								}
+							}) : 
+						null
 					}
 				</div>
 			</div>

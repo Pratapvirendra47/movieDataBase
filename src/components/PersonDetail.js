@@ -84,82 +84,99 @@ class PersonDetail extends React.Component {
 										>
 											Personal Details
 										</div>
-										<div>
-											<div
-												style={{
-													marginTop: "15px",
-													fontWeight: "bold"
-												}}
-											>
-											Birthday
-											</div>
-											<div
-												style={{
-													fontSize:"15px"
-												}}
-											>
-												{this.state.personDetails.birthday}
-											</div>
-										</div>
-										<div>
-											<div
-												style={{
-													marginTop: "15px",
-													fontWeight: "bold"
-												}}
-											>
-											Place of Birth
-											</div>
-											<div
-												style={{
-													fontSize:"15px"
-												}}
-											>
-												{this.state.personDetails.place_of_birth}
-											</div>
-										</div>
-										<div>
-											<div
-												style={{
-													marginTop: "15px",
-													fontWeight: "bold"
-												}}
-											>
-												Known for
-											</div>
-											<div
-												style={{
-													fontSize:"15px"
-												}}
-											>
-												{this.state.personDetails.known_for_department}
-											</div>
-										</div>
-										<div>
-											<div
-												style={{
-													marginTop: "15px",
-													fontWeight: "bold"
-												}}
-											>
-												Also known as
-											</div>
-											{
-												this.state.personDetails.also_known_as ? 
-													this.state.personDetails.also_known_as.map((data) => {
-														return (
-															<div
-																style={{
-																	fontSize:"15px"
-																}}
-															>
-																{data}
-															</div>
-														)
-													}) : 
-												null
-											}
-										</div>
+										{
+											this.state.personDetails.birthday ?
+												<div>
+													<div
+														style={{
+															marginTop: "15px",
+															fontWeight: "bold"
+														}}
+													>
+														Birthday
+													</div>
+													<div
+														style={{
+															fontSize:"15px"
+														}}
+													>
+														{this.state.personDetails.birthday}
+													</div>
+												</div> :
+											null
+										}
+										{
+											this.state.personDetails.place_of_birth ? 
+												<div>
+													<div
+														style={{
+															marginTop: "15px",
+															fontWeight: "bold"
+														}}
+													>
+													Place of Birth
+													</div>
+													<div
+														style={{
+															fontSize:"15px"
+														}}
+													>
+														{this.state.personDetails.place_of_birth}
+													</div>
+												</div> : 
+											null
+										}
+										{
+											this.state.personDetails.known_for_department ?
+												<div>
+													<div
+														style={{
+															marginTop: "15px",
+															fontWeight: "bold"
+														}}
+													>
+														Known for
+													</div>
+													<div
+														style={{
+															fontSize:"15px"
+														}}
+													>
+														{this.state.personDetails.known_for_department}
+													</div>
+												</div> : 
+											null
+										}
+										{
+											this.state.personDetails.also_known_as ?
+												<div>
+													<div
+														style={{
+															marginTop: "15px",
+															fontWeight: "bold"
+														}}
+													>
+														Also known as
+													</div>
+													{
+														this.state.personDetails.also_known_as ? 
+															this.state.personDetails.also_known_as.map((data) => {
+																return (
+																	<div
+																		style={{
+																			fontSize:"15px"
+																		}}
+																	>
+																		{data}
+																	</div>
+																)
+															}) : 
+														null
+													}
+												</div> :
+											null
+											
+										}
 									</div>
 								</div>
 								<div
