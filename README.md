@@ -1,5 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Clone the Project in your system
+
+In the project directory,  run
+
+### sudo npm i
+
+
 ## Available Scripts
 
 In the project directory, you can run:
