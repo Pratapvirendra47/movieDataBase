@@ -186,16 +186,11 @@ class MovieDetail extends React.Component {
 										fontWeight: "bold",
 										cursor: "pointer"
 									}}
-									onClick = {()=> {
-										this.setState({
-											showCastAndCrew: !this.state.showCastAndCrew
-										})
-									}}
 								>
-									Click for Cast and Crew
+									Cast and Crew
 								</div>
 								{
-									this.state.showCastAndCrew ? 
+									this.state.castAndCrew ? 
 										<div
 											style={{
 												display:"flex",
@@ -219,17 +214,19 @@ class MovieDetail extends React.Component {
 												</span> 
 											{
 												this.state.castAndCrew ? 
-												this.state.castAndCrew.map((data) => {
-													return (
-														<div
-															style={{
-																paddingLeft: "50px",
-																width: "50%"
-															}}
-														>
-															<CastDetails castData = {data}/>
-														</div>
-													)	
+												this.state.castAndCrew.map((data, index) => {
+													if (index < 10) {
+														return (
+															<div
+																style={{
+																	paddingLeft: "50px",
+																	width: "50%"
+																}}
+															>
+																<CastDetails castData = {data}/>
+															</div>
+														)	
+													}
 												}) : null
 											}
 											</div>
@@ -248,17 +245,19 @@ class MovieDetail extends React.Component {
 												</span> 
 											{
 												this.state.crewDetails ? 
-												this.state.crewDetails.map((data) => {
-													return (
-														<div
-															style={{
-																paddingLeft: "50px",
-																width: "50%"
-															}}
-														>
-															<CastDetails castData = {data}/>
-														</div>
-													)	
+												this.state.crewDetails.map((data, index) => {
+													if (index < 10) {
+														return (
+															<div
+																style={{
+																	paddingLeft: "50px",
+																	width: "50%"
+																}}
+															>
+																<CastDetails castData = {data}/>
+															</div>
+														)	
+													}
 												}) : null
 											}
 											</div>
@@ -278,16 +277,11 @@ class MovieDetail extends React.Component {
 							fontWeight: "bold",
 							cursor: "pointer"
 						}}
-						onClick = {()=> {
-							this.setState({
-								backdrops: !this.state.backdrops
-							})
-						}}
 					>
-						Click for Backdrops
+						Backdrops
 					</div>
 					{
-						this.state.movieImages.backdrops && this.state.backdrops ? 
+						this.state.movieImages.backdrops  ? 
 							this.state.movieImages.backdrops.map((data, index) => {
 								if (index < 10) {
 									return (
